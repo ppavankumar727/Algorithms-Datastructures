@@ -16,10 +16,12 @@ public class LinkedList {
         
     }
     public void addToTail(String data){
+        //if null is the first node the new node is head 
         if(head == null)
         this.head = new Node1(data);
         else {
             Node1 currentNode = this.head;
+            // itereate till the last node and add 
             while(currentNode.getNextNode() != null){
                 currentNode=currentNode.getNextNode();
             }
@@ -36,9 +38,13 @@ public class LinkedList {
         return removedHead.getData();
     }
     public String removeTail(){
+        //declare a Node varible for iteration
         Node1 removedTail= this.head;
+        //if list is empty return null
          if(removedTail==null)
          return null;
+         // if node is not empty iterate through the list till second last element 
+         // second last elements next node will be the last element and last element consists of null value
          while(removedTail.getNextNode().getNextNode()!=null)
          removedTail = removedTail.getNextNode();
          Node1 rm = removedTail.getNextNode();
