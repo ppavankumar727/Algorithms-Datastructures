@@ -13,6 +13,8 @@ public class ListExec {
         seasons.removeHead();
         seasons.listReverse();
         seasons.printList();
+        // below method doesent print <head> and <tail>
+        seasons.printListReverse();
         // doubly linked list implementation 
         DoublyLinkedList months = new DoublyLinkedList();
     }

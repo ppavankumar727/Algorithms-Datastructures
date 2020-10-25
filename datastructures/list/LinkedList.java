@@ -64,6 +64,22 @@ public class LinkedList {
         System.out.println(output);
         return output;
     }
+    // we are overloading this funtion 
+    // because we cant pass parameter from main class because the head variable is private
+    public void printListReverse(){
+        printListReverse(this.head);
+    }
+    // prints the list in reverse order 
+    // uses recursive method 
+    private void printListReverse(Node1 node1){
+        if(node1.getNextNode()==null)
+        System.out.print(node1.getData()+" ");
+        else{
+            printListReverse(node1.getNextNode());
+            System.out.print(node1.getData()+" ");
+        }
+    }
+
     public void listReverse(){
         if(this.head==null)
         return;
