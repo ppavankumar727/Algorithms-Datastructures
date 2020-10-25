@@ -1,4 +1,5 @@
 package list;
+
 public class LinkedList {
     private Node1 head;
     public LinkedList() {
@@ -62,6 +63,23 @@ public class LinkedList {
         output +="<tail>";
         System.out.println(output);
         return output;
+    }
+    public void listReverse(){
+        if(this.head==null)
+        return;
+        else {
+            Node1 currentHead= this.head;
+            Node1 prev = null;
+            Node1 cnext = currentHead.getNextNode();
+            while(currentHead != null){
+                currentHead.setNextNode(prev);
+                prev = currentHead;
+                currentHead = cnext;
+                if(cnext != null)
+                cnext = cnext.getNextNode();
+            }
+            this.head = prev;
+        }
     }
     
 }
