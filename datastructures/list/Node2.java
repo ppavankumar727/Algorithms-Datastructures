@@ -14,7 +14,9 @@ public class Node2 {
     public void setNextNode(Node2 node) {
       this.next = node;
     }
-  
+    public String getData(){
+      return this.data;
+    }
     public void setPreviousNode(Node2 node) {
       this.previous = node;
     }
