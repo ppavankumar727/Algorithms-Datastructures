@@ -1,4 +1,7 @@
 import list.Node1;
+
+import javax.swing.Spring;
+
 import list.DoublyLinkedList;
 import list.LinkedList;
 public class ListExec {
@@ -15,7 +18,12 @@ public class ListExec {
         seasons.printList();
         // below method doesent print <head> and <tail>
         seasons.printListReverse();
+        // now we are checking our swapping functions 
+        seasons.printList();
+        seasons.swapElements("winter", "spring");
+        seasons.printList();
         // doubly linked list implementation 
+        
         DoublyLinkedList months = new DoublyLinkedList();
     }
     

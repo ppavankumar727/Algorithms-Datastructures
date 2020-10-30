@@ -80,47 +80,64 @@ public class LinkedList {
         }
     }
     public void swapElements(String data1,String data2){
+        //node 1 to search for node with data1 
+        //previousNode1 to keep track of previous pointer of node1 
+        //node 2 to search for node with data 
+        //previousNode2 to keep track of previous pointer of node2
         Node1 node1 = this.head;
         Node1 node2 = this.head;
         Node1 previousNode1 = null;
         Node1 previousNode2 = null;
+        // if both the data are same then we cant swap them
         if(data1 == data2){
             System.out.println("Swap not possible because both the data are same");
             return;
         }
+        //now we reach the node which consists of the data1
+        // we maintain 2 pointers 
         while(node1 != null){
             if(node1.getData() == data1)
             break;
             previousNode1 = node1;
             node1 =node1.getNextNode();
         }
-
+        //now we reach the node which consists of the data2
+        // we maintain 2 pointers 
         while(node2 != null){
             if(node2.getData() == data2)
             break;
             previousNode2 = node2;
             node2 = node2.getNextNode();
         }
+        // if data dint match that means given inputs are not present in our data here
+        // so we return null here
         if(node1==null || node2 ==null){
             System.out.println("one of the node is null means it doesent exist in the list");
             return;
         }
-
+        // if previous node is null for node 1 then it is  supposed to be head node
+        // so as we are swapping we have to assign this.head pointer to node2 
+        // or else we set previous of node 1 to point to node 2 
         if(previousNode1==null){
             this.head = node2;
         }
         else {
             previousNode1.setNextNode(node2);
         }
+        // if previous node is null for node 2 then it is  supposed to be head node
+        // so as we are swapping we have to assign this.head pointer to node1
+        //or else we set previous of node 2 to point to node 1
         if(previousNode2 == null){
             this.head = node1;
         }
         else {
             previousNode2.setNextNode(node1);
         }
+        // now we change the what node1 and node2 actually points here
+        //we use temp to keep track of node1 next element here
         Node1 temp = node1.getNextNode();
         node1.setNextNode(node2.getNextNode());
-        node2.setNextNode(node1);
+        node2.setNextNode(temp);
 
     }
 
