@@ -79,6 +79,50 @@ public class LinkedList {
             System.out.print(node1.getData()+" ");
         }
     }
+    public void swapElements(String data1,String data2){
+        Node1 node1 = this.head;
+        Node1 node2 = this.head;
+        Node1 previousNode1 = null;
+        Node1 previousNode2 = null;
+        if(data1 == data2){
+            System.out.println("Swap not possible because both the data are same");
+            return;
+        }
+        while(node1 != null){
+            if(node1.getData() == data1)
+            break;
+            previousNode1 = node1;
+            node1 =node1.getNextNode();
+        }
+
+        while(node2 != null){
+            if(node2.getData() == data2)
+            break;
+            previousNode2 = node2;
+            node2 = node2.getNextNode();
+        }
+        if(node1==null || node2 ==null){
+            System.out.println("one of the node is null means it doesent exist in the list");
+            return;
+        }
+
+        if(previousNode1==null){
+            this.head = node2;
+        }
+        else {
+            previousNode1.setNextNode(node2);
+        }
+        if(previousNode2 == null){
+            this.head = node1;
+        }
+        else {
+            previousNode2.setNextNode(node1);
+        }
+        Node1 temp = node1.getNextNode();
+        node1.setNextNode(node2.getNextNode());
+        node2.setNextNode(node1);
+
+    }
 
     public void listReverse(){
         if(this.head==null)
