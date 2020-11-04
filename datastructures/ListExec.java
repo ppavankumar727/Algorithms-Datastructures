@@ -1,12 +1,10 @@
-import list.Node1;
-
-import javax.swing.Spring;
-
 import list.DoublyLinkedList;
 import list.LinkedList;
 public class ListExec {
     public static void main(String[] args) {
         // Singly linked list implementation 
+        System.out.println("------------------------------\nSingly Linked List Implementation\n------------------------------");
+
         LinkedList seasons = new LinkedList();
         seasons.addToHead("summer");
         seasons.addToTail("winter");
@@ -22,9 +20,27 @@ public class ListExec {
         seasons.printList();
         seasons.swapElements("winter", "spring");
         seasons.printList();
+        // we print this function because we return position of node
+        // removeFromEnd gives null if index does not exist 
+        System.out.println(seasons.removeFromEnd(1).getData());
+        System.out.println(seasons.removeFromEnd(2).getData());
+
+        //this function returns middle node in the list 
+        System.out.println(seasons.findMiddle().getData());
+        seasons.printList();
         // doubly linked list implementation 
-        
+        System.out.println("------------------------------\nDoubly Linked List Implementation\n------------------------------");
         DoublyLinkedList months = new DoublyLinkedList();
+        months.addToHead("jan");
+        months.addToTail("feb");
+        months.addToHead("march");
+        months.addToHead("sept");
+        months.addToTail("nov");
+        months.printList();
+        months.removeHead();
+        months.printList();
+        months.removeTail();
+        months.printList();
     }
     
 }

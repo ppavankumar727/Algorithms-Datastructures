@@ -140,6 +140,39 @@ public class LinkedList {
         node2.setNextNode(temp);
 
     }
+    public Node1 removeFromEnd(int postion){
+        // two nodes one will be chasing end other will be position steps behind the tail
+        Node1 tailSeeker = this.head;
+        Node1 current = null;
+        int count = 0;
+        while(tailSeeker != null){
+            tailSeeker = tailSeeker.getNextNode();
+                if (count >= postion){
+                    if(current == null){
+                    current = this.head;
+                    }
+                    current = current.getNextNode();
+                }
+            count ++;
+        }
+        return current;
+    }
+    public Node1 findMiddle(){
+        Node1 fastPointer = this.head;
+        Node1 slowPointer = this.head;
+        //move the fastpointer 2 times 
+        //move the slow pointer ones 
+        // when fastpoiinter reaches end slow would be at middle
+        while(fastPointer != null){
+            fastPointer = fastPointer.getNextNode();
+            // we cannot move further if fast pointer reaches null so we check before moving here
+            if(fastPointer!=null){
+            fastPointer = fastPointer.getNextNode();
+            slowPointer = slowPointer.getNextNode();
+            }
+        }
+        return slowPointer;
+    }
 
     public void listReverse(){
         if(this.head==null)

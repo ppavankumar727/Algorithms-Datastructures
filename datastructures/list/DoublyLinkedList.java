@@ -75,5 +75,17 @@ public class DoublyLinkedList{
         }
         return removedTail.getData();
     }
-    
+
+    public String printList(){
+        String output="<head> ";
+        Node2 i=this.head;
+        while(i.getNextNode()!=null){
+            output += i.getData() + " ";
+            i=i.getNextNode();
+        }
+        output += i.getData() + " ";
+        output +="<tail>";
+        System.out.println(output);
+        return output;
+    }
 }
