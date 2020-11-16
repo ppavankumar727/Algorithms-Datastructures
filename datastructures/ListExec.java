@@ -1,5 +1,5 @@
-import list.DoublyLinkedList;
-import list.LinkedList;
+import lists.*;
+import lists.LinkedList;
 public class ListExec {
     public static void main(String[] args) {
         // Singly linked list implementation 
