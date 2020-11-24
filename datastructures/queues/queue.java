@@ -11,5 +11,8 @@ public class queue {
         this.maxSize=maxSize;
         this.count=0;
     }
+    public queue(){
+        this(DEFAULT_SIZE);
+    }
     
 }
