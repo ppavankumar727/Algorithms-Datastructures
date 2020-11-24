@@ -1,5 +1,7 @@
 package lists;
 
+import jdk.internal.jimage.ImageReader.Node;
+
 public class LinkedList {
     private Node1 head;
     public LinkedList() {
@@ -15,6 +17,9 @@ public class LinkedList {
         this.head = newHead;
         newHead.setNextNode(currentHead);
         
+    }
+    public Node1 getHead(){
+        return this.head;
     }
     public void addToTail(String data){
         //if null is the first node the new node is head 
