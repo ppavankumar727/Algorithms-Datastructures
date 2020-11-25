@@ -1,7 +1,5 @@
 package lists;
 
-import jdk.internal.jimage.ImageReader.Node;
-
 public class LinkedList {
     private Node1 head;
     public LinkedList() {
