@@ -26,8 +26,10 @@ public class Stack {
         if(!this.isEmpty()){
             String data = this.stack.removeHead();
             this.size--;
+            System.out.println("Popped "+data+" From stack size :"+this.size);            
             return data;
         }else {
+            System.out.println("Stack Is Empty!!");
             return null;
         }
     }
@@ -35,14 +37,19 @@ public class Stack {
         if(this.hasSpace()){
             this.stack.addToHead(data);
             this.size++;
+            System.out.println("Pushed "+data+" to stack size :"+this.size);
             return true;
         }
         else {
+            System.out.println("Stack Is Full!!");
             return false;
         }
 
     }
     public String peek(){
+        if (this.isEmpty())
+        return null;
+        else
        return this.stack.getHead().getData();
     }
 
