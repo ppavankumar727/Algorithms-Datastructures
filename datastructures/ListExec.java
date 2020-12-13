@@ -28,7 +28,16 @@ public class ListExec {
         //this function returns middle node in the list 
         System.out.println(seasons.findMiddle().getData());
         seasons.printList();
-        // doubly linked list implementation 
+        //adding duplicate elements to check delete dupicate elements function
+        seasons.addToTail("spring");
+        seasons.addToTail("spring");
+        seasons.addToTail("spring");
+        //before calling the function
+        seasons.printList();
+        seasons.removeDuplicate();
+        //after calling the function
+        seasons.printList();
+//==========================================================doubly linked list implementation=========================         
         System.out.println("------------------------------\nDoubly Linked List Implementation\n------------------------------");
         DoublyLinkedList months = new DoublyLinkedList();
         months.addToHead("jan");

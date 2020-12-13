@@ -176,7 +176,30 @@ public class LinkedList {
         }
         return slowPointer;
     }
-
+    public void removeDuplicate(){
+        if(this.head == null){
+            System.out.println("Zero Elements in the list");
+            return;
+        }
+        Node1 itereator1 = this.head;
+        Node1 itereator2 = itereator1.getNextNode();
+        while(itereator1 != null){
+            Node1 prev = itereator1;
+            while(itereator2 != null){
+                if(itereator1.getData() == itereator2.getData()){
+                    prev.setNextNode(itereator2.getNextNode());
+                    itereator2.setNextNode(null);
+                    itereator2 = itereator1.getNextNode();
+                    continue;
+                }
+                prev = itereator2;
+                itereator2 = itereator2.getNextNode();
+            }
+            itereator1=itereator1.getNextNode();
+            if(itereator1 != null)
+            itereator2=itereator1.getNextNode();
+        }         
+    }
     public void listReverse(){
         if(this.head==null)
         return;
