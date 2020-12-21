@@ -17,6 +17,10 @@ public class TreeNode {
     public void addChild(TreeNode child){
         this.children.add(child);
     }
+    public void addChild(Object data){
+        TreeNode child = new TreeNode(data);
+        this.addChild(child);
+    }
     //removing child gets little 
     //we check wether the children list is empty or not if empty we return 
     public void removeChild(TreeNode childToRemove){
