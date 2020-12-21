@@ -1,3 +1,4 @@
+package trees;
 import java.util.ArrayList;
 public class TreeNode {
     private Object data;
@@ -59,7 +60,7 @@ public class TreeNode {
         //if child doesent exist here it may exist in the children of childrens
         // so we recursively call remove child method in each child to check if the data exists in children nodes
         for(TreeNode child : this.children){
-            this.removeChild(data);
+            child.removeChild(data);
         }
 
     }

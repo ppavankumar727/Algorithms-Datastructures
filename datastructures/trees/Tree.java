@@ -1,3 +1,4 @@
+package trees;
 import java.util.Queue;
 import java.util.LinkedList;
 public class Tree{
@@ -20,10 +21,10 @@ public class Tree{
         }
     }
     //depth first first reaches depth of each child then moves to the next child siblings depth 
-    public void depthFirstSearch(TreeNode current){
-        System.out.println(current+" ");
+    public void depthFirstTraversal(TreeNode current){
+        System.out.print(current.getData()+" ");
         for(TreeNode child : current.getChildren()){
-            this.depthFirstSearch(child);
+            this.depthFirstTraversal(child);
         }
     }
     //we use queushere first in first out
@@ -32,12 +33,12 @@ public class Tree{
     //so it goes according the breadth order 
     //childs will be printed after the parents siblings get printed 
     //childs wait in queue
-    public void breadthFirstSearch(){
+    public void breadthFirstTraversal(){
         Queue<TreeNode> queue = new LinkedList<TreeNode>();
         queue.add(this.root);
         while(!queue.isEmpty()){
             TreeNode current = queue.poll();
-            System.out.println(current.getData());
+            System.out.print(current.getData());
             queue.addAll(current.getChildren());
         }
     }
