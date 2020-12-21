@@ -7,6 +7,12 @@ public class TreeNode {
         this.data = data;
         this.children=new ArrayList<TreeNode>();
     }
+    public Object getData(){
+        return this.data;
+    }
+    public ArrayList<TreeNode> getChildren(){
+        return this.children;
+    }
     //Adding a child is simple we just add to the ArrayList
     public void addChild(TreeNode child){
         this.children.add(child);
