@@ -30,40 +30,45 @@ public class MinHeap {
             this.swap(this.getParent(current),(current));
         }   
     }
-    public void remove(){
-        if(this.heap.isEmpty()){
+    public int remove(){
+        if(this.size == 0){
             System.out.println("The Heap is Empty");
-            return;
+            throw new Error("Heap is empty!");
         }
         this.swap(1,this.size);
-        this.heap.remove(this.size);
+        int min = this.heap.remove(this.size);
         this.size--;
+        this.heapify();
+        return min;
+        
     }
     private void heapify(){
         int current = 1;
-        while(this.exists(this.getLeft(current))&&this.canSwap(current)){
-            if(this.exists(this.getLeft(current))&&this.exists(this.getRight(current))){
-                if(this.heap.get(this.getLeft(current))<this.heap.get(this.getRight(current)))){
-                    this.swap(this.getLeft(current),current);
+        int leftChild = this.getLeft(current);
+        int rightChild = this.getRight(current);
+        while(this.canSwap(current,leftChild,rightChild)){
+            if(this.exists(leftChild)&&this.exists(rightChild)){
+                if(this.heap.get(leftChild)<this.heap.get(rightChild)){
+                    this.swap(leftChild,current);
                     current = this.getLeft(current);
                 }
                 else {
-                    this.swap(this.getRight(current),current);
-                    current = this.getRight(current);
+                    this.swap(rightChild,current);
+                    current = rightChild;
                 }
             }else{
-                this.swap(this.getLeft(current),current);
-                current = this.getLeft(current);
+                this.swap(leftChild,current);
+                current = leftChild;
             }
-
+            rightChild = this.getRight(current);
+            leftChild = this.getLeft(current);
         }
     }
-    private boolean canSwap(int current){
-        if(this.heap.get(this.getLeft(current))<this.heap.get(this.heap.get(current))||this.heap.get(this.getRight(current))<this.heap.get(current)))
-        return true;
-
-        else return false;
+    private boolean canSwap(int current, int leftChild, int rightChild) {
+        return (this.exists(leftChild) && (this.heap.get(current) > this.heap.get(leftChild)))
+                || (this.exists(rightChild) && (this.heap.get(current) > this.heap.get(rightChild)));
     }
+
     private boolean exists(int n){
         return n<=this.size;
     }
