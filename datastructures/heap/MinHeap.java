@@ -39,9 +39,38 @@ public class MinHeap {
         this.heap.remove(this.size);
         this.size--;
     }
+    private void heapify(){
+        int current = 1;
+        while(this.exists(this.getLeft(current))&&this.canSwap(current)){
+            if(this.exists(this.getLeft(current))&&this.exists(this.getRight(current))){
+                if(this.heap.get(this.getLeft(current))<this.heap.get(this.getRight(current)))){
+                    this.swap(this.getLeft(current),current);
+                    current = this.getLeft(current);
+                }
+                else {
+                    this.swap(this.getRight(current),current);
+                    current = this.getRight(current);
+                }
+            }else{
+                this.swap(this.getLeft(current),current);
+                current = this.getLeft(current);
+            }
+
+        }
+    }
+    private boolean canSwap(int current){
+        if(this.heap.get(this.getLeft(current))<this.heap.get(this.heap.get(current))||this.heap.get(this.getRight(current))<this.heap.get(current)))
+        return true;
+
+        else return false;
+    }
+    private boolean exists(int n){
+        return n<=this.size;
+    }
     private void swap(int a , int b){
         int temp = this.heap.get(a);
         this.heap.set(a,this.heap.get(b));
         this.heap.set(b,temp);
     }
+    
 }
