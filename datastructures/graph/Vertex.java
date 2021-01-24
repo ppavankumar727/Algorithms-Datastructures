@@ -4,11 +4,11 @@ import java.util.ArrayList;
 
 public class Vertex {
     private String data;
-    private ArrayList<Edge> edge;
+    private ArrayList<Edge> edges;
 
     public Vertex (String data){
         this.data = data;
-        this.edge = new ArrayList<>();
+        this.edges = new ArrayList<>();
     }
     public String getData(){
         return this.data;
@@ -17,7 +17,7 @@ public class Vertex {
         this.data = data;
     }
     public ArrayList<Edge> getEdges (){
-        return this.edge;
+        return this.edges;
     }
 
     public void print(boolean showWeight) {
@@ -30,7 +30,7 @@ public class Vertex {
 		
 		for(int i = 0; i < this.edges.size(); i++) {
 			if (i == 0) {
-				message += this.edges.get(i).getStart().data + " -->  ";
+				message += this.edges.get(i).getStart().getData() + " -->  ";
 			}
 
 			message += this.edges.get(i).getEnd().data;
@@ -45,4 +45,6 @@ public class Vertex {
 		}
 		System.out.println(message);
 	}
+
+   
 }
