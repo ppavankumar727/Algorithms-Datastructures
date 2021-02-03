@@ -1,7 +1,7 @@
 package stack;
 import lists.LinkedList;
-public class Stack {
-    private LinkedList stack;
+public class Stack <T> {
+    private LinkedList <T> stack;
     private int size;
     private int maxSize;
     private static int DEFAULT_INTEGER = Integer.MAX_VALUE;
@@ -22,9 +22,9 @@ public class Stack {
     private boolean isEmpty(){
         return this.size == 0;
     }
-    public String pop(){
+    public T pop(){
         if(!this.isEmpty()){
-            String data = this.stack.removeHead();
+            T data = this.stack.removeHead();
             this.size--;
             System.out.println("Popped "+data+" From stack size :"+this.size);            
             return data;
@@ -33,7 +33,7 @@ public class Stack {
             return null;
         }
     }
-    public boolean push(String data){
+    public boolean push(T data){
         if(this.hasSpace()){
             this.stack.addToHead(data);
             this.size++;
@@ -46,7 +46,7 @@ public class Stack {
         }
 
     }
-    public String peek(){
+    public T peek(){
         if (this.isEmpty())
         return null;
         else
