@@ -1,6 +1,6 @@
 package queues;
 import lists.LinkedList;
-public class Queue {
+public class Queue<T> {
     private LinkedList queue;
     private int size;
     private int maxSize;
@@ -21,7 +21,7 @@ public class Queue {
     public boolean hasSpace(){
         return this.size<this.maxSize;
     }
-    public void enqueue(String data)throws Exception{
+    public void enqueue(T data)throws Exception{
         // we can only add data if we have space in the queue 
         //we add data and increment the size variable
         //we add at the tail
@@ -36,12 +36,12 @@ public class Queue {
            System.out.println("Queue is Full!");
         }
     }
-    public String dequeue()throws Exception {
+    public T dequeue()throws Exception {
         //if queue is empty we cannnot remove further 
         // so we check whether empty or not if not empty we are supposed to remove
         // we remove it from the front
         if(!this.isEmpty()){
-           String data = this.queue.removeHead();
+           T data = this.queue.removeHead();
            this.size--;
            System.out.println("The removed data is "+data+" queue size :"+this.size);
            return data;
@@ -52,7 +52,7 @@ public class Queue {
             return null;
         }
     }
-    public String peek(){
+    public T peek(){
         //if list is empty we dont return anything 
         //so we check if the list is empty and return the data
         if(!this.isEmpty()){
