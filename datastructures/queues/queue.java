@@ -2,7 +2,7 @@ package queues;
 import lists.LinkedList;
 import lists.Node1;
 public class Queue<T> {
-    private LinkedList queue;
+    private LinkedList<T> queue;
     private int size;
     private int maxSize;
     private static int DEFAULT_SIZE=Integer.MAX_VALUE;
