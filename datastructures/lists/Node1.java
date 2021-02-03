@@ -1,9 +1,9 @@
 package lists;
-public class Node1 {
-    private String data;
+public class Node1 <T> {
+    private T data;
     private Node1 next;
 
-    public Node1 (String data){
+    public Node1 (T data){
         this.data = data;
         this.next = null;
     }
@@ -13,10 +13,10 @@ public class Node1 {
     public Node1 getNextNode(){
         return this.next;
     }
-    public void setData(String data){
+    public void setData(T data){
         this.data = data;
     }
-    public String getData(){
+    public T getData(){
        return this.data;
     }
 

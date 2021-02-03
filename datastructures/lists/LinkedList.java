@@ -1,13 +1,13 @@
 package lists;
 
-public class LinkedList {
-    private Node1 head;
+public class LinkedList <T> {
+    private Node1<T> head;
     public LinkedList() {
         this.head=null;
     }
-    public void addToHead(String data){
-        Node1 newHead = new Node1(data);
-        Node1 currentHead= this.head;
+    public void addToHead(T data){
+        Node1<T> newHead = new Node1<T>(data);
+        Node1<T> currentHead= this.head;
         this.head=newHead;
         if (currentHead !=null){
             this.head = newHead;
@@ -16,34 +16,34 @@ public class LinkedList {
         newHead.setNextNode(currentHead);
         
     }
-    public Node1 getHead(){
+    public Node1<T> getHead(){
         return this.head;
     }
-    public void addToTail(String data){
+    public void addToTail(T data){
         //if null is the first node the new node is head 
         if(head == null)
-        this.head = new Node1(data);
+        this.head = new Node1<T>(data);
         else {
-            Node1 currentNode = this.head;
+            Node1<T> currentNode = this.head;
             // itereate till the last node and add 
             while(currentNode.getNextNode() != null){
                 currentNode=currentNode.getNextNode();
             }
-            currentNode.setNextNode(new Node1(data));
+            currentNode.setNextNode(new Node1<T>(data));
         } 
 
     }
-    public String removeHead(){
-       Node1 removedHead= this.head;
+    public T removeHead(){
+       Node1<T> removedHead= this.head;
         if(removedHead==null)
         return null;
         
         this.head = removedHead.getNextNode();
         return removedHead.getData();
     }
-    public String removeTail(){
+    public T removeTail(){
         //declare a Node varible for iteration
-        Node1 removedTail= this.head;
+        Node1<T> removedTail= this.head;
         //if list is empty return null
          if(removedTail==null)
          return null;
@@ -51,13 +51,13 @@ public class LinkedList {
          // second last elements next node will be the last element and last element consists of null value
          while(removedTail.getNextNode().getNextNode()!=null)
          removedTail = removedTail.getNextNode();
-         Node1 rm = removedTail.getNextNode();
+         Node1<T> rm = removedTail.getNextNode();
          removedTail.setNextNode(null);
          return rm.getData();
      }
     public String printList(){
         String output="<head> ";
-        Node1 i=this.head;
+        Node1<T> i=this.head;
         while(i.getNextNode()!=null){
             output += i.getData() + " ";
             i=i.getNextNode();
@@ -82,15 +82,15 @@ public class LinkedList {
             System.out.print(node1.getData()+" ");
         }
     }
-    public void swapElements(String data1,String data2){
+    public void swapElements(T data1,T data2){
         //node 1 to search for node with data1 
-        //previousNode1 to keep track of previous pointer of node1 
+        //previousNode1<T> to keep track of previous pointer of node1 
         //node 2 to search for node with data 
         //previousNode2 to keep track of previous pointer of node2
-        Node1 node1 = this.head;
-        Node1 node2 = this.head;
-        Node1 previousNode1 = null;
-        Node1 previousNode2 = null;
+        Node1<T> node1 = this.head;
+        Node1<T> node2 = this.head;
+        Node1<T> previousNode1<T> = null;
+        Node1<T> previousNode2 = null;
         // if both the data are same then we cant swap them
         if(data1 == data2){
             System.out.println("Swap not possible because both the data are same");
@@ -143,10 +143,10 @@ public class LinkedList {
         node2.setNextNode(temp);
 
     }
-    public Node1 removeFromEnd(int postion){
+    public Node1<T> removeFromEnd(int postion){
         // two nodes one will be chasing end other will be position steps behind the tail
-        Node1 tailSeeker = this.head;
-        Node1 current = null;
+        Node1<T> tailSeeker = this.head;
+        Node1<T> current = null;
         int count = 0;
         while(tailSeeker != null){
             tailSeeker = tailSeeker.getNextNode();
@@ -160,9 +160,9 @@ public class LinkedList {
         }
         return current;
     }
-    public Node1 findMiddle(){
-        Node1 fastPointer = this.head;
-        Node1 slowPointer = this.head;
+    public Node1<T> findMiddle(){
+        Node1<T> fastPointer = this.head;
+        Node1<T> slowPointer = this.head;
         //move the fastpointer 2 times 
         //move the slow pointer ones 
         // when fastpoiinter reaches end slow would be at middle
@@ -181,10 +181,10 @@ public class LinkedList {
             System.out.println("Zero Elements in the list");
             return;
         }
-        Node1 itereator1 = this.head;
-        Node1 itereator2 = itereator1.getNextNode();
+        Node1<T> itereator1 = this.head;
+        Node1<T> itereator2 = itereator1.getNextNode();
         while(itereator1 != null){
-            Node1 prev = itereator1;
+            Node1<T> prev = itereator1;
             while(itereator2 != null){
                 if(itereator1.getData() == itereator2.getData()){
                     prev.setNextNode(itereator2.getNextNode());
@@ -204,9 +204,9 @@ public class LinkedList {
         if(this.head==null)
         return;
         else {
-            Node1 currentHead= this.head;
-            Node1 prev = null;
-            Node1 cnext = currentHead.getNextNode();
+            Node1<T> currentHead= this.head;
+            Node1<T> prev = null;
+            Node1<T> cnext = currentHead.getNextNode();
             while(currentHead != null){
                 currentHead.setNextNode(prev);
                 prev = currentHead;
