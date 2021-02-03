@@ -1,5 +1,6 @@
 package queues;
 import lists.LinkedList;
+import lists.Node1;
 public class Queue<T> {
     private LinkedList queue;
     private int size;
