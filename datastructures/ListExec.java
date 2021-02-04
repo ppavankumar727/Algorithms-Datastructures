@@ -5,7 +5,7 @@ public class ListExec {
         // Singly linked list implementation 
         System.out.println("------------------------------\nSingly Linked List Implementation\n------------------------------");
 
-        LinkedList seasons = new LinkedList();
+        LinkedList<String> seasons = new LinkedList();
         seasons.addToHead("summer");
         seasons.addToTail("winter");
         seasons.addToTail("spring");
