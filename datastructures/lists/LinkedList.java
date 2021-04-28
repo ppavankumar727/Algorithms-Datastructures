@@ -89,7 +89,7 @@ public class LinkedList <T> {
         //previousNode2 to keep track of previous pointer of node2
         Node1<T> node1 = this.head;
         Node1<T> node2 = this.head;
-        Node1<T> previousNode1<T> = null;
+        Node1<T> previousNode1 = null;
         Node1<T> previousNode2 = null;
         // if both the data are same then we cant swap them
         if(data1 == data2){
