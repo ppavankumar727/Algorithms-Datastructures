@@ -11,12 +11,26 @@ Note: You are not allowed to use any built-in exponent function or operator, suc
 public class SquareRoot 
 {
     public static void main(String[] args) {
-        System.out.println(mySqrt(9));
+        System.out.println(mySqrt(8
+        ));
     }
     public static int mySqrt(int x) {
-       int i ;
-        for ( i = 0;(i*i)<=x;i++){}
-        return (i-1);
+        int low=0; int high=x; int ans=-1;
+        while(low<=high){
+        int mid=(low+high)/2;
+        long msq=(long)mid*(long)mid;
+        if(msq==x){
+        return mid;
+        }
+        else if(msq>x){
+        high=mid-1;
+        }
+        else{
+        low=mid+1;
+        ans=mid;
+        }
+        }
+        return ans;
     }
 }
 
